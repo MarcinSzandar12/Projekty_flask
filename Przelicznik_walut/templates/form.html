@@ -1,0 +1,15 @@
+{% extends "home.html" %}
+{% block content %}
+<form action="{{ url_for("convert") }}", method="POST">
+    <label for="currency">Choose a currency:</label>
+    <select name="currency" id="currency">
+        {% for rate in rates %}
+            <option value = "{{ rate["code"] }}">{{ rate["currency"] }}</option>
+        {% endfor %}
+        </select><br>
+
+    <label for="quantity">Enter the quantity:</label>
+    <input name="quantity"/>
+    <button type="submit">Przelicz</button>
+</form>
+{% endblock %}
